@@ -23,9 +23,9 @@ fi
 if [ $atlas -eq "ASHS-combined-3t" ]; then
 	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
-if [ $atlas -eq "Penntle" ]; then
-	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
-fi
+#if [ $atlas -eq "Penntle" ]; then
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#fi
 if [ $atlas -eq "Princeton-3t" ]; then
 	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi

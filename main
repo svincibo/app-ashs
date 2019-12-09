@@ -11,11 +11,30 @@ atlas=$(jq -r .atlas config.json)
 
 # Run ashs segmentation, providing the t1, t2, and atlas paths
 #ashs-fastashs_beta/bin/ashs_main.sh -I subj001 -a $atlas -g $t1 -f $t2 -w output/
-if [ $atlas -eq "atlas1" ]; then
+if [ $atlas -eq "Magdeburg-7t" ]; then
 	singularity exec docker://brainlife/ashs:v1_atlas1 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
-if [ $atlas -eq "atlas2" ]; then
+if [ $atlas -eq "UMC-Utrecht-7t" ]; then
 	singularity exec docker://brainlife/ashs:v1_atlas2 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
+if [ $atlas -eq "ASHS-separated-3t" ]; then
+	singularity exec docker://brainlife/ashs:v1_atlas3 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+fi
+if [ $atlas -eq "ASHS-combined-3t" ]; then
+	singularity exec docker://brainlife/ashs:v1_atlas4 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+fi
+if [ $atlas -eq "Penntle" ]; then
+	singularity exec docker://brainlife/ashs:v1_atlas5 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+fi
+if [ $atlas -eq "Princeton-3t" ]; then
+	singularity exec docker://brainlife/ashs:v1_atlas6 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+fi
+if [ $atlas -eq "UPENN-PMC-3t" ]; then
+	singularity exec docker://brainlife/ashs:v1_atlas7 ./ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+fi
+
+
+
+
 # Check for output.
 #[ ! -s track.tck ] && exit 1

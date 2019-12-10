@@ -1,5 +1,5 @@
 {
 "t1": "testdata/t1.nii.gz",
-"t2": "testdata/t1.nii.gz",
-"atlas": "ashs-atlases/ashs_atlas_princeton/"
+"t2": "testdata/t2.nii.gz",
+"atlas": "UPENN-PMC-3t"
 }

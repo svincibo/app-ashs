@@ -1,7 +1,23 @@
 # app-ashs
-This app implements the Automated Hippocampus Segmentation Algorithm (ASHS). This algorithm uses ANTs to automatically label hippocampal subfields using MRI. This implementation does not make use of the ability to retrain based on user-supplied training data. 
+This app implements the (fast) Automated Hippocampus Segmentation Algorithm (ASHS), version 2.0.0. This algorithm uses ANTs to automatically label hippocampal subfields using MRI. This implementation does not make use of the ability to retrain based on user-supplied training data. 
 
 More information on ASHS can be found here: http://picsl.upenn.edu/software/ashs/
+
+# ASHS SOFTWARE CITATIONS
+
+Primary Citation
+Please cite this paper in reference to ASHS software and the UPenn PMC atlas:
+
+Yushkevich PA, Pluta J, Wang H, Ding SL, Xie L, Gertje E, Mancuso L, Kliot D, Das SR and Wolk DA, "Automated Volumetry and Regional Thickness Analysis of Hippocampal Subfields and Medial Temporal Cortical Structures in Mild Cognitive Impairment", Human Brain Mapping, 2014, 36(1), 258-287. http://www.ncbi.nlm.nih.gov/pubmed/25181316
+
+Additional Citations:
+Papers describing the earlier version of ASHS (2010) and the VACIND atlas:
+
+Yushkevich, Paul A., Hongzhi Wang, John Pluta, Sandhitsu R. Das, Caryne Craige, Brian B. Avants, Michael W. Weiner, and Susanne Mueller. "Nearly automatic segmentation of hippocampal subfields in in vivo focal T2-weighted MRI." Neuroimage 53, no. 4 (2010): 1208-1224. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2939190/
+
+Pluta, John, Paul Yushkevich, Sandhitsu Das, and David Wolk. "In vivo analysis of hippocampal subfield atrophy in mild cognitive impairment via semi-automatic segmentation of T2-weighted MRI." Journal of Alzheimer's Disease 31, no. 1 (2012): 85-99. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3391337/
+
+# CITATIONS FOR ATLASES AVAILABLE ON BRAINLIFE.IO
 
 There are currently 6 atlases available using this application (listed below). Citations are provided for each atlas. 
 

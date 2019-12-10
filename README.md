@@ -1,5 +1,5 @@
-# app-ashs
-This app implements the (fast) Automated Hippocampus Segmentation Algorithm (ASHS), version 2.0.0. This algorithm uses ANTs to automatically label hippocampal subfields using MRI. This implementation does not make use of the ability to retrain based on user-supplied training data. 
+# app-ashs-segment
+This app implements the "segmentation mode" (fast) Automated Hippocampus Segmentation Algorithm (ASHS), version 2.0.0. This algorithm uses ANTs to automatically label hippocampal subfields using MRI. 
 
 More information on ASHS can be found here: http://picsl.upenn.edu/software/ashs/
 

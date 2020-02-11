@@ -5,9 +5,9 @@
 #PBS -l vmem=30gb
 
 #parse config.json for input parameters 
-t1=$(jq -r .t1 config.json.sample)
-t2=$(jq -r .t2 config.json.sample)
-atlas=$(jq -r .atlas config.json.sample)
+t1=$(jq -r .t1 config.json)
+t2=$(jq -r .t2 config.json)
+atlas=$(jq -r .atlas config.json)
 
 # Run ashs segmentation, providing the t1, t2, and atlas paths
 #ashs-fastashs_beta/bin/ashs_main.sh -I subj001 -a $atlas -g $t1 -f $t2 -w output/
@@ -21,16 +21,16 @@ atlas=$(jq -r .atlas config.json.sample)
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
 #if [$atlas -eq "ASHS-combined-3t"]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+	singularity exec docker://brainlife/ashs-ca23_combined:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
 #if [$atlas -eq "Penntle"]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#	singularity exec docker://brainlife/ashs-penntle_hippo:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
 #if [$atlas -eq "Princeton-3t"]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
 #if [$atlas -eq "UPENN-PMC-3t"]; then
-	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
 
 

@@ -14,25 +14,25 @@ atlas=$(jq -r .atlas config.json)
 
 
 # Select requested atlas.
-#if [$atlas -eq "Magdeburg-7t"]; then
+#if [ "$atlas" -eq "Magdeburg-7t" ]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
-#if [$atlas -eq "UMC-Utrecht-7t"]; then
+#if [ "$atlas" -eq "UMC-Utrecht-7t" ]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
-#if [$atlas -eq "ASHS-separated-3t"]; then
+#if [ "$atlas" -eq "ASHS-separated-3t" ]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
-if [$atlas -eq "ASHS-combined-3t"]; then
+if [ "$atlas" -eq "ASHS-combined-3t" ]; then
 	singularity exec docker://brainlife/ashs-ca23_combined:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
-if [$atlas -eq "Penntle"]; then
+if [ "$atlas" -eq "Penntle" ]; then
 	singularity exec docker://brainlife/ashs-penntle_hippo:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
-#if [$atlas -eq "Princeton-3t"]; then
+#if [ "$atlas" -eq "Princeton-3t" ]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 #fi
-if [$atlas -eq "UPENN-PMC-3t"]; then
+if [ "$atlas" -eq "UPENN-PMC-3t" ]; then
 	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
 fi
 

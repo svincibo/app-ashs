@@ -4,6 +4,9 @@
 #PBS -l walltime=03:00:00
 #PBS -l vmem=30gb
 
+set -e
+set -x
+
 #parse config.json for input parameters 
 t1=$(jq -r .t1 config.json)
 t2=$(jq -r .t2 config.json)

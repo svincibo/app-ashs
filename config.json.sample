@@ -1,5 +1,5 @@
 {
 "t1": "testdata/t1.nii.gz",
 "t2": "testdata/t2.nii.gz",
-"atlas": "Penntle"
+"atlas": "ASHS-combined-3t"
 }

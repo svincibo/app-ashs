@@ -7,35 +7,158 @@
 set -e
 set -x
 
-#parse config.json for input parameters 
-t1=$(jq -r .t1 config.json)
-t2=$(jq -r .t2 config.json)
 atlas=$(jq -r .atlas config.json)
+
+#parse config.json for input parameters 
+#t1=$(jq -r .t1 config.json)
+#t2=$(jq -r .t2 config.json)
 
 # Run ashs segmentation, providing the t1, t2, and atlas paths
 # ashs-fastashs_beta/bin/ashs_main.sh -I subj001 -a $atlas -g $t1 -f $t2 -w output/
 
+mkdir -p output-volume
 
 # Select requested atlas.
 #if [ "$atlas" == "Magdeburg-7t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 #fi
 #if [ "$atlas" == "UMC-Utrecht-7t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 #fi
-#if [ "$atlas" == "ASHS-separated-3t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
-#fi
+if [ "$atlas" == "ASHS-separated-3t" ]; then
+	
+	singularity exec -e docker://brainlife/ashs-dg_ca23_separated:2.0.0 ./run.sh
+	
+	# create output-volume output
+	cat <<EOF > output-volume/labels.json
+
+[
+    {
+        "label": "0",
+        "name": "Clear Label",
+        "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "1",
+        "name": "CA1",
+        "color": {
+            "r": 255,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "2",
+        "name": "subiculum",
+        "color": {
+            "r": 240,
+            "g": 86,
+            "b": 224
+        }
+    },
+    {
+        "label": "3",
+        "name": "posthip",
+        "color": {
+            "r": 255,
+            "g": 239,
+            "b": 213
+        }
+    },
+    {
+        "label": "4",
+        "name": "CA23",
+        "color": {
+            "r": 0,
+            "g": 255,
+            "b": 0
+        }
+    },
+    {
+        "label": "5",
+        "name": "DG",
+        "color": {
+            "r": 0,
+            "g": 0,
+            "b": 255
+        }
+    }
+]
+EOF
+
+fi
+
 if [ "$atlas" == "ASHS-combined-3t" ]; then
-	singularity exec docker://brainlife/ashs-ca23_combined:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+	
+	singularity exec -e docker://brainlife/ashs-ca23_combined:2.0.0 ./run.sh
+	
+	# create output-volume output
+	cat <<EOF > output-volume/labels.json
+
+[
+    {
+        "label": "0",
+        "name": "Clear Label",
+        "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "1",
+        "name": "CA1",
+        "color": {
+            "r": 255,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "2",
+        "name": "subiculum",
+        "color": {
+            "r": 240,
+            "g": 86,
+            "b": 224
+        }
+    },
+    {
+        "label": "3",
+        "name": "posthip",
+        "color": {
+            "r": 255,
+            "g": 239,
+            "b": 213
+        }
+    },
+    {
+        "label": "4",
+        "name": "CA23DG",
+        "color": {
+            "r": 0,
+            "g": 255,
+            "b": 255
+        }
+    }
+]
+EOF
+
 fi
 if [ "$atlas" == "Penntle" ]; then
-	singularity exec docker://brainlife/ashs-penntle_hippo:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+	singularity exec -e docker://brainlife/ashs-penntle_hippo:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 fi
 #if [ "$atlas" == "Princeton-3t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 #fi
 if [ "$atlas" == "UPENN-PMC-3t" ]; then
-	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/
+	singularity exec -e  docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 fi
+
+singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/output_left_lfseg_heur.nii.gz -add output/ashs/final/output_right_lfseg_heur.nii.gz output-volume/parc.nii.gz
+
 

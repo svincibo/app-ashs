@@ -21,17 +21,17 @@ mkdir -p output/ashs
 # Make a directory for the brainlife-compatible parcellation output.
 mkdir -p output-volume
 
-# Swap dimensions of T2 so to conform to ASHS requirements.
-singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2 x z y output/ashs/t2_aligned_to_t1.nii.gz
-
 # Coregister t2 to t1, store it in output directory for raw ashs output.
-#singularity exec -e docker://brainlife/fsl:5.0.9 flirt -in output/ashs/t2-swapped.nii.gz -ref $t1 -dof 6 -cost leastsq -out output/ashs/t2_aligned_to_t1 
+singularity exec -e docker://brainlife/fsl:5.0.9 flirt -in $t2 -ref $t1 -dof 6 -cost leastsq -out output/ashs/t2_aligned_to_t1 
+
+# Swap dimensions of T2 so to conform to ASHS requirements.
+singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim output/ashs/t2_aligned_to_t1.nii.gz  x z y output/ashs/t2-swapped.nii.gz
 
 # Select requested atlas.
 if [ "$atlas" == "ASHS-separated-3t" ]; then
 	
 	# Run segmentation using this atlas.	
-	singularity exec -e docker://brainlife/ashs-dg_ca23_separated:2.0.0 ./run.sh $t1 output/ashs/t2_aligned_to_t1.nii.gz
+	singularity exec -e docker://brainlife/ashs-dg_ca23_separated:2.0.0 ./run.sh $t1 output/ashs/t2-swapped.nii.gz
 	
 	# Create brainlife-compatible labels file for this atlas based on snaplabels.txt.
 	cat <<EOF > output-volume/labels.json
@@ -99,7 +99,7 @@ fi
 if [ "$atlas" == "ASHS-combined-3t" ]; then
 	
 	# Run segmentation using this atlas.	
-	singularity exec -e docker://brainlife/ashs-ca23_combined:2.0.0 ./run.sh $t1 output/ashs/t2_aligned_to_t1.nii.gz 
+	singularity exec -e docker://brainlife/ashs-ca23_combined:2.0.0 ./run.sh $t1 output/ashs/t2-swapped.nii.gz 
 
 	# Create brainlife-compatible labels file for this atlas based on snaplabels.txt.
 	cat <<EOF > output-volume/labels.json

@@ -21,9 +21,6 @@ mkdir -p output/ashs
 # Make a directory for the brainlife-compatible parcellation output.
 mkdir -p output-volume
 
-# Verify that the T2 slices are in the z-direction. If not, then reformat.
-$ASHS_ROOT/ext/Linux/bin/c3d $t2 -info
-
 # Swap dimensions of T2 so to conform to ASHS requirements.
 singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2 x z y output/ashs/t2-swapped.nii.gz
 

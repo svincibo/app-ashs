@@ -7,6 +7,9 @@ set -x
 #t2=$(jq -r .t2 config.json)
 #atlas=$(jq -r .atlas config.json)
 
+# Verify that the T2 slices are in the z-direction. Just show the user, for now.
+$ASHS_ROOT/ext/Linux/bin/c3d $t2 -info
+
 # Run the main ashs segmentation script.
 ashs_main.sh -a /atlas -g $1 -f ${2}.nii.gz -w output/ashs
 

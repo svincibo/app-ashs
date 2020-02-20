@@ -22,10 +22,10 @@ mkdir -p output/ashs
 mkdir -p output-volume
 
 # Swap dimensions of T2 so to conform to ASHS requirements.
-singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2 x z y output/ashs/t2-swapped.nii.gz
+singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2 x z y output/ashs/t2_aligned_to_t1.nii.gz
 
 # Coregister t2 to t1, store it in output directory for raw ashs output.
-singularity exec -e docker://brainlife/fsl:5.0.9 flirt -in output/ashs/t2-swapped.nii.gz -ref $t1 -dof 6 -cost leastsq -out output/ashs/t2_aligned_to_t1 
+#singularity exec -e docker://brainlife/fsl:5.0.9 flirt -in output/ashs/t2-swapped.nii.gz -ref $t1 -dof 6 -cost leastsq -out output/ashs/t2_aligned_to_t1 
 
 # Select requested atlas.
 if [ "$atlas" == "ASHS-separated-3t" ]; then

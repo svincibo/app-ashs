@@ -156,18 +156,39 @@ if [ "$atlas" == "ASHS-combined-3t" ]; then
 EOF
 
 fi
-#if [ "$atlas" == "Magdeburg-7t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
-#fi
-#if [ "$atlas" == "UMC-Utrecht-7t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
-#fi
-#if [ "$atlas" == "Penntle" ]; then
-	#singularity exec -e docker://brainlife/ashs-penntle_hippo:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
-#fi
-#if [ "$atlas" == "Princeton-3t" ]; then
-#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
-#fi
+
+if [ "$atlas" == "Penntle" ]; then
+
+	# Run segmentation using this atlas.	
+	singularity exec -e docker://brainlife/ashs-penntle_hippo:2.0.0 ./run.sh $t1 $t2
+
+	# Create brainlife-compatible labels file for this atlas based on snaplabels.txt.
+	cat <<EOF > output-volume/labels.json
+
+[
+    {
+        "label": "0",
+        "name": "Clear Label",
+        "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "1",
+        "name": "Hipp",
+        "color": {
+            "r": 255,
+            "g": 0,
+            "b": 0
+        }
+    }
+]
+EOF
+
+fi
+
 if [ "$atlas" == "UPENN-PMC-3t" ]; then
 		
 	# Run segmentation using this atlas.	
@@ -307,6 +328,15 @@ if [ "$atlas" == "UPENN-PMC-3t" ]; then
 EOF
 
 fi
+#if [ "$atlas" == "Magdeburg-7t" ]; then
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
+#fi
+#if [ "$atlas" == "UMC-Utrecht-7t" ]; then
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
+#fi
+#if [ "$atlas" == "Princeton-3t" ]; then
+#	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
+#fi
 
 # Merge lh and rh segmentations that come from ashs into one parcellation for brainlife compatability.
 singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/ashs_left_lfseg_heur.nii.gz -add output/ashs/final/ashs_right_lfseg_heur.nii.gz output-volume/parc.nii.gz

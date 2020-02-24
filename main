@@ -309,6 +309,6 @@ EOF
 fi
 
 # Merge lh and rh segmentations that come from ashs into one parcellation for brainlife compatability.
-singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/output_left_lfseg_heur.nii.gz -add output/ashs/final/output_right_lfseg_heur.nii.gz output-volume/parc.nii.gz
+singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/ashs_left_lfseg_heur.nii.gz -add output/ashs/final/ashs_right_lfseg_heur.nii.gz output-volume/parc.nii.gz
 
 

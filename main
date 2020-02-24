@@ -166,9 +166,100 @@ fi
 #if [ "$atlas" == "Princeton-3t" ]; then
 #	singularity exec docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
 #fi
-#if [ "$atlas" == "UPENN-PMC-3t" ]; then
-	#singularity exec -e  docker://brainlife/ashs-upennpmc:2.0.0 ashs_main.sh -a /atlas -g $t1 -f $t2 -w output/ashs
-#fi
+if [ "$atlas" == "UPENN-PMC-3t" ]; then
+		
+	# Run segmentation using this atlas.	
+	singularity exec -e  docker://brainlife/ashs-upennpmc:2.0.0 ./run.sh $t1 output/ashs/t2-swapped.nii.gz
+
+	# Create brainlife-compatible labels file for this atlas based on snaplabels.txt.
+	cat <<EOF > output-volume/labels.json
+
+[
+    {
+        "label": "0",
+        "name": "Clear Label",
+        "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "1",
+        "name": "CA1",
+        "color": {
+            "r": 255,
+            "g": 0,
+            "b": 0
+        }
+    },
+    {
+        "label": "2",
+        "name": "CA2",
+        "color": {
+            "r": 0,
+            "g": 255,
+            "b": 0
+        }
+    },
+    {
+        "label": "3",
+        "name": "DG",
+        "color": {
+            "r": 128,
+            "g": 64,
+            "b": 255
+        }
+    },
+    {
+        "label": "4",
+        "name": "CA3",
+        "color": {
+            "r": 255,
+            "g": 255,
+            "b": 0
+        }
+    },
+    {
+        "label": "5",
+        "name": "head",
+        "color": {
+            "r": 0,
+            "g": 255,
+            "b": 255
+        }
+    },
+    {
+        "label": "6",
+        "name": "tail",
+        "color": {
+            "r": 166,
+            "g": 193,
+            "b": 255
+        }
+    },
+    {
+        "label": "7",
+        "name": "misc",
+        "color": {
+            "r": 231,
+            "g": 66,
+            "b": 0
+        }
+    },
+    {
+        "label": "8",
+        "name": "SUB",
+        "color": {
+            "r": 240,
+            "g": 86,
+            "b": 224
+        }
+    }
+]
+EOF
+
+fi
 
 # Merge lh and rh segmentations that come from ashs into one parcellation for brainlife compatability.
 singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/output_left_lfseg_heur.nii.gz -add output/ashs/final/output_right_lfseg_heur.nii.gz output-volume/parc.nii.gz

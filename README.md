@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.219-blue.svg)](https://doi.org/10.25663/bl.app.219)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.262-blue.svg)](https://doi.org/10.25663/brainlife.app.262)
 
 # app-ashs-segment
 This app implements the "segmentation mode" (fast) Automated Hippocampus Segmentation Algorithm (ASHS), version 2.0.0. This algorithm uses ANTs to automatically label hippocampal subfields using MRI. 

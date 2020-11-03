@@ -32,7 +32,7 @@ Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivativ
 
 MIT Copyright (c) 2020 brainlife.io The University of Texas at Austin and Indiana University
 
-# --- ASHS Software Citations
+### ASHS Software Citations
 
 Primary Citation
 Please cite this paper in reference to ASHS software and the UPenn PMC atlas:
@@ -46,7 +46,7 @@ Yushkevich, Paul A., Hongzhi Wang, John Pluta, Sandhitsu R. Das, Caryne Craige, 
 
 Pluta, John, Paul Yushkevich, Sandhitsu Das, and David Wolk. "In vivo analysis of hippocampal subfield atrophy in mild cognitive impairment via semi-automatic segmentation of T2-weighted MRI." Journal of Alzheimer's Disease 31, no. 1 (2012): 85-99. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3391337/
 
-# Citations for atlases available on brainlife.io
+### Citations for atlases available on brainlife.io
 
 There are currently 6 atlases available using this application (listed below). Citations are provided for each atlas. 
 

@@ -20,7 +20,15 @@ More information on ASHS can be found here: http://picsl.upenn.edu/software/ashs
 [![NSF-BCS-1636893](https://img.shields.io/badge/NSF_BCS-1636893-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1636893)
 [![NIH-T32-HD007475](https://img.shields.io/badge/NIH_T32-HD007475-blue.svg)](https://www.nichd.nih.gov/grants-contracts/training-careers/extramural/institutional)
 
-# ASHS SOFTWARE CITATIONS
+### Citations
+
+We kindly ask that you cite the following articles when publishing papers and code using this code.
+
+Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). https://doi.org/10.1038/s41597-019-0073-y
+
+MIT Copyright (c) 2020 brainlife.io The University of Texas at Austin and Indiana University
+
+# --- ASHS Software Citations
 
 Primary Citation
 Please cite this paper in reference to ASHS software and the UPenn PMC atlas:
@@ -34,7 +42,7 @@ Yushkevich, Paul A., Hongzhi Wang, John Pluta, Sandhitsu R. Das, Caryne Craige, 
 
 Pluta, John, Paul Yushkevich, Sandhitsu Das, and David Wolk. "In vivo analysis of hippocampal subfield atrophy in mild cognitive impairment via semi-automatic segmentation of T2-weighted MRI." Journal of Alzheimer's Disease 31, no. 1 (2012): 85-99. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3391337/
 
-# CITATIONS FOR ATLASES AVAILABLE ON BRAINLIFE.IO
+# Citations for atlases available on brainlife.io
 
 There are currently 6 atlases available using this application (listed below). Citations are provided for each atlas. 
 

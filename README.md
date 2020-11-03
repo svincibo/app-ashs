@@ -68,3 +68,13 @@ Schlichting, M. L., Mack, M. L., Guarino, K. F., & Preston, A. R. (2019). Perfor
 
 7. IKND Magdeburg Young Adult 7T Atlas
 Berron, D., Vieweg, P., Hochkeppler, A., Pluta, J.B., Ding, S.-L., Maass, A., Luther, A., Xie, L., Das, S.R., Wolk, D.A., Wolbers, T., Yushkevich, P.A., Düzel, E., Wisse, L.E.M., 2017. A protocol for manual segmentation of medial temporal lobe subregions in 7 Tesla MRI. NeuroImage: Clinical 15, pp.466\u2013482.
+
+### Dependencies
+
+This App only requires singularity to run. If you don't have singularity, you will need to install following dependencies.
+
+Matlab: https://www.mathworks.com/products/matlab.html
+jsonlab: https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files
+VISTASOFT: https://github.com/vistalab/vistasoft/
+ENCODE: https://github.com/brain-life/encode
+MBA: https://github.com/francopestilli/mba

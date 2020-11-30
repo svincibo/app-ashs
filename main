@@ -25,7 +25,7 @@ mkdir -p output-volume
 #singularity exec -e docker://brainlife/fsl:5.0.9 flirt -in $t2 -ref $t1 -dof 6 -cost leastsq -out output/ashs/t2_aligned_to_t1 
 
 # Swap dimensions of T2 so to conform to ASHS requirements.
-singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2  x z y output/ashs/t2-swapped.nii.gz
+#singularity exec -e docker://brainlife/fsl:5.0.9 fslswapdim $t2  x z y output/ashs/t2-swapped.nii.gz
 
 # Select requested atlas.
 if [ "$atlas" == "ASHS-separated-3t" ]; then
@@ -192,7 +192,8 @@ fi
 if [ "$atlas" == "UPENN-PMC-3t" ]; then
 		
 	# Run segmentation using this atlas.	
-	singularity exec -e  docker://brainlife/ashs-upennpmc:2.0.0 ./run.sh $t1 output/ashs/t2-swapped.nii.gz
+	#singularity exec -e  docker://brainlife/ashs-upennpmc:2.0.0 ./run.sh $t1 output/ashs/t2-swapped.nii.gz
+        singularity exec -e -B /media/tmp:/tmp docker://brainlife/ashs-upennpmc:2.0.0 ./run.sh $t1 $t2
 
 	# Create brainlife-compatible labels file for this atlas based on snaplabels.txt.
 	cat <<EOF > output-volume/labels.json
@@ -339,6 +340,6 @@ fi
 #fi
 
 # Merge lh and rh segmentations that come from ashs into one parcellation for brainlife compatability.
-singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/ashs_left_lfseg_heur.nii.gz -add output/ashs/final/ashs_right_lfseg_heur.nii.gz output-volume/parc.nii.gz
+#singularity exec -e docker://brainlife/fsl:5.0.9 fslmaths output/ashs/final/ashs_left_lfseg_heur.nii.gz -add output/ashs/final/ashs_right_lfseg_heur.nii.gz output-volume/parc.nii.gz
 
 

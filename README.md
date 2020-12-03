@@ -89,4 +89,7 @@ Berron, D., Vieweg, P., Hochkeppler, A., Pluta, J.B., Ding, S.-L., Maass, A., Lu
 This App only requires singularity to run (https://singularity.lbl.gov/install-request). If you don't have singularity, you will need to install following dependencies.
 
 ashs_atlas_upenpmc_20170810.tar: https://www.nitrc.org/frs/?group_id=370
+FSL: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation
+ANTS: http://stnava.github.io/ANTs/
+ITK-SNAP: http://www.itksnap.org/pmwiki/pmwiki.php?n=Downloads.SNAP3
 jsonlab: https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files

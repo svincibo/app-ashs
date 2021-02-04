@@ -54,6 +54,8 @@ We currently provide the UPenn PMC ASHS Atlas for segmentation:
 
 Yushkevich PA, Pluta J, Wang H, Ding SL, Xie L, Gertje E, Mancuso L, Kliot D, Das SR and Wolk DA, "Automated Volumetry and Regional Thickness Analysis of Hippocampal Subfields and Medial Temporal Cortical Structures in Mild Cognitive Impairment", Human Brain Mapping, 2014, 36(1), 258-287. http://www.ncbi.nlm.nih.gov/pubmed/25181316
 
+Please note that this atlas does not segment the head (voxel value = 5) and tail (voxel value = 6). Note also that the voxel value 9 does not exist.
+
 We plan to provide 5 additional ASHA Atlases (listed below) in the future when they are updated for compatibility with (fast) Automated Hippocampus Segmentation Algorithm (ASHS), version 2.0.0. Citations are provided for each atlas: 
 
 1. Princeton Young Adult 3T ASHS Atlas

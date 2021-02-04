@@ -201,130 +201,116 @@ if [ "$atlas" == "UPENN-PMC-3t" ]; then
 
 [
     {
-        "label": "0",
         "name": "Clear Label",
-        "color": {
-            "r": 0,
-            "g": 0,
-            "b": 0
-        }
+	"label": "0",
+	"voxel_value": 0,
+        "r": 0,
+        "g": 0,
+        "b": 0
     },
     {
-        "label": "1",
         "name": "CA1",
-        "color": {
-            "r": 255,
-            "g": 0,
-            "b": 0
-        }
+	"label": "1",
+        "voxel_value": 1,
+        "r": 255,
+        "g": 0,
+        "b": 0
     },
     {
-        "label": "2",
         "name": "CA2",
-        "color": {
-            "r": 0,
-            "g": 255,
-            "b": 0
-        }
+	"label": "2",
+        "voxel_value": 2,
+        "r": 0,
+        "g": 255,
+        "b": 0
     },
     {
-        "label": "3",
         "name": "DG",
-        "color": {
-            "r": 128,
-            "g": 64,
-            "b": 255
-        }
+	"label": "3",
+        "voxel_value": 3,
+        "r": 128,
+        "g": 64,
+        "b": 255
     },
     {
-        "label": "4",
         "name": "CA3",
-        "color": {
-            "r": 255,
-            "g": 255,
-            "b": 0
-        }
+	"label": "4",
+        "voxel_value": 4,
+        "r": 255,
+        "g": 255,
+        "b": 0
     },
     {
-        "label": "5",
         "name": "head",
-        "color": {
-            "r": 0,
-            "g": 255,
-            "b": 255
-        }
+	"label": "5",
+        "voxel_value": 5,
+        "r": 0,
+        "g": 255,
+        "b": 255
     },
     {
-        "label": "6",
         "name": "tail",
-        "color": {
-            "r": 166,
-            "g": 193,
-            "b": 255
-        }
+	"label": "6",
+        "voxel_value": 6,
+        "r": 166,
+        "g": 193,
+        "b": 255
     },
     {
-        "label": "7",
         "name": "misc",
-        "color": {
-            "r": 231,
-            "g": 66,
-            "b": 0
-        }
+	"label": "7",
+        "voxel_value": 7,
+        "r": 231,
+        "g": 66,
+        "b": 0
     },
     {
-        "label": "8",
         "name": "SUB",
-        "color": {
-            "r": 240,
-            "g": 86,
-            "b": 224
-        }
+	"label": "8",
+        "voxel_value": 8,
+        "r": 240,
+        "g": 86,
+        "b": 224
     },
     {
-        "label": "10",
         "name": "ERC",
-        "color": {
-            "r": 210,
-            "g": 180,
-            "b": 140
-        }
+	"label": "10",
+        "voxel_value": 10,
+        "r": 210,
+        "g": 180,
+        "b": 140
     },
     {
-        "label": "11",
         "name": "BA35",
-        "color": {
-            "r": 55,
-            "g": 180,
-            "b": 255
-        }
+        "label": "11",
+	"voxel_value": 11,
+        "r": 55,
+        "g": 180,
+        "b": 255
     },
     {
-        "label": "12",
         "name": "BA36",
-        "color": {
-            "r": 0,
-            "g": 0,
-            "b": 255
-        }
+	"label": "12",
+        "voxel_value": 12,
+        "r": 0,
+        "g": 0,
+        "b": 255
     },
     {
-        "label": "13",
         "name": "PHC",
-        "color": {
-            "r": 243,
-            "g": 135,
-            "b": 70
-        }
+	"label": "13",
+        "voxel_value": 13,
+        "r": 243,
+        "g": 135,
+        "b": 70
     },
     {
-        "label": "14",
         "name": "sulcus",
-        "color": {
-            "r": 46,
-            "g": 139,
-            "b": 87
-        }
+	"label": "14",
+        "voxel_value": 14,
+        "r": 46,
+        "g": 139,
+        "b": 87
     }
 ]
 EOF
